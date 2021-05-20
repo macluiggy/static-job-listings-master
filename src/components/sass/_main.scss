@@ -1,0 +1,105 @@
+@import 'mixins';
+
+main {
+	background-color: var(--Light_Grayish_Cyan_Background);
+	padding: 5em 0;
+}
+.items {
+	//@include border(blue);
+	//border: solid;
+	@include box-shadow(0px, 3px, 7px, var(--Desaturated_Dark_Cyan));
+
+	border-left: 5px solid var(--Desaturated_Dark_Cyan);
+	background-color: white;
+	justify-content: space-between;
+	display: flex;
+	padding: 2em;
+	width: 80%;
+	margin: auto;
+	.logo_description {
+		//@include border(gray);
+		display: flex;
+		margin: 0;
+		padding: 0;
+		.logo {
+			//@include border(green);
+			width: fit-content;
+			height: fit-content;
+			margin: 0 1.5em 0 0;
+			img {
+				width: 100;
+			}
+		}
+		.description {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			.logo_name {
+				display: flex;
+				align-items: center;
+				//@include border(red);
+				margin: 0.3em 0;
+				span {
+					margin-right: 1em;
+				}
+				.logo_name_span {
+					font-size: 14px;
+					font-weight: bolder;
+					color: var(--Desaturated_Dark_Cyan);
+				}
+				.new {
+					background-color: var(--Desaturated_Dark_Cyan);
+					color: white;
+					border-radius: 1em;
+					padding: 0.3em 0.7em;
+					text-transform: uppercase;
+					font-size: 0.7em;
+					font-weight: bold;
+				}
+				.featured {
+					background-color: var(--Very_Dark_Grayish_Cyan);
+					color: white;
+					border-radius: 1em;
+					padding: 0.3em 0.7em;
+					text-transform: uppercase;
+					font-size: 0.7em;
+					font-weight: bold;
+				}
+			}
+			h4 {
+				//@include border(orange);
+				margin: 0.3em 0;
+				font-size: 1.16em;
+			}
+			.time_location {
+				margin: 0.3em 0;
+				display: flex;
+				padding: 0;
+				//@include border(violet);
+				li:first-child {
+					list-style-type: none;
+				}
+				li {
+					padding: 0 2em 0 0;
+					color: var(--Dark_Grayish_Cyan);
+					font-size: 0.9333333333333em;
+				}
+			}
+		}
+	}
+	.skills {
+		//@include border(yellow);
+		margin: 0;
+		display: flex;
+		align-items: center;
+		list-style-type: none;
+		padding: 0;
+		li {
+			margin: 0.7rem;
+			padding: 0.7em;
+			background-color: var(--Light_Grayish_Cyan_Background);
+			color: var(--Desaturated_Dark_Cyan);
+			font-size: 0.93333333333333333em;
+		}
+	}
+}

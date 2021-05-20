@@ -3,9 +3,9 @@
 }
 
 @mixin box-shadow($x, $y, $blur, $spread_color) {
-	-webkit-box-shadow: $X $y $blur $spread_color;
-	-moz-box-shadow: $X $y $blur $spread_color;
-	box-shadow: $X $y $blur $spread_color;
+	-webkit-box-shadow: $x $y $blur $spread_color;
+	-moz-box-shadow: $x $y $blur $spread_color;
+	box-shadow: $x $y $blur $spread_color;
 }
 
 @mixin filter($function, $val) {

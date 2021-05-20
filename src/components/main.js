@@ -11,19 +11,23 @@ export default class Main extends Component {
 	render() {
 		return (<main>
 			<section className="items item1">
-            <div>
+            <div className="logo_description">
                 <figure className="logo">
                     <img src={logo} alt="photosnap logo" />
                 </figure>
-                <p className="photosnap">Photosnap</p>
-                <span className="new">New!</span>
-                <span className="featured">Featured</span>f
-                <h4>Senior Frontend Developer</h4>
-                <ul className="time_location">
-                    <li>1d ago</li>
-                    <li>Full Time</li>
-                    <li>USA only</li>
-                </ul>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Photosnap</span>
+                        <span className="new">New!</span>
+                        <span className="featured">Featured</span>
+                    </div>
+                    <h4>Senior Frontend Developer</h4>
+                    <ul className="time_location">
+                        <li>1d ago</li>
+                        <li>Full Time</li>
+                        <li>USA only</li>
+                    </ul>
+                </article>
             </div>
             <ul className="skills">
                 <li className="role">Frontend</li>
