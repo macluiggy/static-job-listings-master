@@ -4,5 +4,6 @@ header {
 	height: 155px;
 	background-image: url('../images/bg-header-desktop.svg');
 	background-repeat: no-repeat;
-	@include border(red);
+	//@include border(red);
+	background-color: var(--Desaturated_Dark_Cyan);
 }

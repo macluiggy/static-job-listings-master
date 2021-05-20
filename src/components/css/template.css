@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap");
+:root {
+  --Desaturated_Dark_Cyan: hsl(180, 29%, 50%);
+  --Light_Grayish_Cyan_Background: hsl(180, 52%, 96%);
+  --Light_Grayish_Cyan_Filter_Tablets: hsl(180, 31%, 95%);
+  --Dark_Grayish_Cyan: hsl(180, 8%, 52%);
+  --Very_Dark_Grayish_Cyan: hsl(180, 14%, 20%);
+}
+
+body {
+  font-size: 15px;
+  font-family: "Spartan", sans-serif;
+}
+
+header {
+  height: 155px;
+  background-image: url("../images/bg-header-desktop.svg");
+  background-repeat: no-repeat;
+  background-color: var(--Desaturated_Dark_Cyan);
+}
+
+/*# sourceMappingURL=template.css.map */
