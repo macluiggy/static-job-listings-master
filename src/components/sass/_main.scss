@@ -2,7 +2,7 @@
 
 main {
 	background-color: var(--Light_Grayish_Cyan_Background);
-	padding: 5em 0;
+	padding: 3em 0;
 }
 .items {
 	//@include border(blue);
@@ -15,7 +15,7 @@ main {
 	display: flex;
 	padding: 2em;
 	width: 80%;
-	margin: auto;
+	margin: 2em auto;
 	.logo_description {
 		//@include border(gray);
 		display: flex;

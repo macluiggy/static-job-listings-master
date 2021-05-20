@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 
 //images
-import logo from './images/photosnap.svg'
+import photosnap from './images/photosnap.svg'
+import manage from './images/manage.svg'
 
 export default class Main extends Component {
 	constructor(props) {
@@ -13,7 +14,7 @@ export default class Main extends Component {
 			<section className="items item1">
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={logo} alt="photosnap logo" />
+                    <img src={photosnap} alt="photosnap logo" />
                 </figure>
                 <article class="description">
                     <div class="logo_name">
@@ -35,6 +36,32 @@ export default class Main extends Component {
                 <li className="languages">HTML</li>
                 <li className="languages">CSS</li>
                 <li className="languages">JavaScript</li>
+            </ul>
+        </section>
+        <section className="items item1">
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={manage} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Manage</span>
+                        <span className="new">New!</span>
+                        <span className="featured">Featured</span>
+                    </div>
+                    <h4>Fullstack Developer</h4>
+                    <ul className="time_location">
+                        <li>1d ago</li>
+                        <li>Part Time</li>
+                        <li>Remote</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role">Fullstack</li>
+                <li className="level">Midweight</li>
+                <li className="languages">Python</li>
+                <li className="languages">React</li>
             </ul>
         </section>
 		</main>)
