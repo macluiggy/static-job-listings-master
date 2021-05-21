@@ -23,6 +23,48 @@ main {
   background-color: var(--Light_Grayish_Cyan_Background);
   padding: 3em 0;
 }
+main .filter_container {
+  border: solid red;
+  width: 80%;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 2em;
+}
+main .filter_container .skills {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+main .filter_container .skills li {
+  margin: 0 0.7em 0 0;
+  padding: 0.7em;
+  background-color: var(--Light_Grayish_Cyan_Background);
+  color: var(--Desaturated_Dark_Cyan);
+  font-size: 0.9333333333em;
+}
+main .filter_container .skills li .X {
+  padding: 0.6em;
+  cursor: pointer;
+  color: white;
+  background-color: var(--Desaturated_Dark_Cyan);
+  transition: 0.3s background-color;
+}
+main .filter_container .skills li .X:hover {
+  background-color: var(--Very_Dark_Grayish_Cyan);
+}
+main .filter_container .clear {
+  cursor: pointer;
+  color: var(--Desaturated_Dark_Cyan);
+  transition: 0.3s text-decoration;
+}
+main .filter_container .clear:hover {
+  text-decoration: underline;
+}
 
 .items {
   -webkit-box-shadow: 0px 3px 7px var(--Desaturated_Dark_Cyan);
@@ -115,6 +157,7 @@ main {
   background-color: var(--Light_Grayish_Cyan_Background);
   color: var(--Desaturated_Dark_Cyan);
   font-size: 0.9333333333em;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=template.css.map */

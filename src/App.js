@@ -5,14 +5,20 @@ import React, {Component} from 'react';
 
 //components
 import Header from './components/Header';
-import Main from './components/main'
+import Main from './components/main';
+//data
+import data from './data/data.json'
 
 class App extends Component {
+
+	state = {
+		data: data
+	}
 
 	render() {
 		return <div>
     	<Header />
-    	<Main />
+    	<Main data={this.state.data}/>
     	</div>
 	}
 }

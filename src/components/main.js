@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 //images
-import photosnap from './images/photosnap.svg'
-import manage from './images/manage.svg'
+import photosnap from './images/photosnap.svg';
+import manage from './images/manage.svg';
 
 export default class Main extends Component {
 	constructor(props) {
@@ -10,7 +10,18 @@ export default class Main extends Component {
 	}
 
 	render() {
+		const {data} = this.props.data;
 		return (<main>
+			<div className="filter_container">
+				<ul className="skills">
+                	<li className="role">Frontend <span className="X">X</span></li>
+                	<li className="level">Senior</li>
+                	<li className="languages">HTML</li>
+                	<li className="languages">CSS</li>
+                	<li className="languages">JavaScript</li>
+            	</ul>
+            	<span className="clear">Clear</span>
+			</div>
 			<section className="items item1">
             <div className="logo_description">
                 <figure className="logo">
