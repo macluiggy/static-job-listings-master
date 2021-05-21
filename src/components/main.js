@@ -4,32 +4,45 @@ import React, {Component} from 'react';
 import photosnap from './images/photosnap.svg';
 import manage from './images/manage.svg';
 
+import Filter from './Filter';
+
 export default class Main extends Component {
-	
+
+	state = {
+		skills: []
+	}
+
 	filterSkill = (e) => {
 		//console.log(e.currentTarget)
 		let skill = e.target.innerText;
+		console.log(this.props.data)
 		//console.log(skill);
-		let filteredSkill = this.props.data.find(person => {
-			return skill === person.role || skill === person.level || skill === person.languages.find(language => language == skill)
-		})
-		console.log(filteredSkill)
-		this.appendFilter(filteredSkill)
+		for(let i = 0, length1 = this.props.data.length; i < length1; i++){
+			let person = this.props.data[i]
+			if (person.role === skill || person.level === skill) {
+				// statement
+				this.setState({
+					skills: [...this.state.skills, skill]
+				})
+			}
+		}
+		//this.appendFilter(filteredSkill)
 	}
 
-	appendFilter = (filteredSkill) => {
-		return <li>{filteredSkill}</li>
-	}
+	
 
 	render() {
-		const data = this.props.data;
+		const data = [...new Set(this.state.skills)]
 		console.log(data)
+		//console.log(data)
 		return (<main>
 			<div className="filter_container">
 				<ul className="skills">
                 	<li className="role" >Frontend<span className="X">X</span></li>
                 	<li className="level">Senior</li>
-                	{this.appendFilter}
+                	{data.map(skill => {
+                		return <li>{skill}</li>
+                	})}
             	</ul>
             	<span className="clear">Clear</span>
 			</div>
@@ -80,7 +93,7 @@ export default class Main extends Component {
                 </article>
             </div>
             <ul className="skills">
-                <li className="role">Fullstack</li>
+                <li className="role" onClick={this.filterSkill}>Fullstack</li>
                 <li className="level">Midweight</li>
                 <li className="languages">Python</li>
                 <li className="languages">React</li>
