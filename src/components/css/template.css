@@ -46,6 +46,8 @@ main .filter_container .skills2 li {
   background-color: var(--Light_Grayish_Cyan_Background);
   color: var(--Desaturated_Dark_Cyan);
   font-size: 0.9333333333em;
+  display: flex;
+  align-items: center;
 }
 main .filter_container .skills2 li .X {
   padding: 0.6em;
@@ -70,11 +72,15 @@ main .none {
 }
 main #none {
   border: solid;
+  display: none;
 }
 main #one {
   display: flex;
 }
 main #two {
+  display: flex;
+}
+main #three {
   display: flex;
 }
 

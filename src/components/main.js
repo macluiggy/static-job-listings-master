@@ -68,14 +68,14 @@ export default class Main extends Component {
             
         }*/
         //llama otra funcion
-        this.filterConteiner(skill)
+        this.filterContainer(skill)
     }
 
-    filterConteiner = (skill) => {
+    filterContainer = (skill) => {
     	let array = this.props.data;
     	let arr2 = [...new Set([...this.state.skills, skill])];
     	
-    	for(let i = 0, length1 = array.length; i < 3; i++){
+    	for(let i = 0, length1 = array.length; i < length1; i++){
     		let person = array[i];
     		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
     		const arr1 = [...new Set(arrSinLimites)];
@@ -133,11 +133,30 @@ export default class Main extends Component {
     	this.setState({
     		skills: []
     	})
+    	this.showAgain();
     }
 
-    clearItem = () => {
-    	
+    clearItem = (e) => {
+    	let item = e.target.parentNode.firstChild.innerText;
+    	p(item);
+    	let index = this.state.skills.indexOf(item);
+    	p(index)
+    	if (index > -1) {
+    		// statement
+    		this.state.skills.splice(index, 1)
+    		this.setState({
+    			skills: this.state.skills
+    		})
+    	}
+    	p(this.state.skills)
     }
+
+    showAgain = () => {
+    	for(let i = 0, length1 = this.state.sections.length; i < length1; i++){
+    		this.state.sections[i] = this.state.sectionsFixed[i]
+    	}
+    }
+
     render() {
         const skills = [...new Set(this.state.skills)];
         let count = -1;
@@ -147,11 +166,17 @@ export default class Main extends Component {
         return (<main>
 			<div className='filter_container'>
 				<ul className="skills2">
-                	<li className="role" >Froxxntendrr<span className="X">X</span></li>
-                	<li className="level">Senxxiorrr</li>
+                	<li className="role" ><p>Froxxntendrr</p><span className="X">X</span></li>
+                	<li className="level"><p>Senxxiorrr</p></li>
                 	{[...new Set(this.state.skills)].map(skill => {
                 		count++;
-                		return <li key={count}>{skill}<span className="X">X</span></li>;
+                		return <li key={count}>
+                		<p>{skill}</p>
+                		<span 
+                		className="X" 
+                		onClick={this.clearItem}>
+                		X</span>
+                		</li>;
                 	})}
             	</ul>
             	<span className="clear" onClick={this.clear}>Clear</span>

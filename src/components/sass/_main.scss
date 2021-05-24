@@ -28,6 +28,8 @@ main {
                 background-color: var(--Light_Grayish_Cyan_Background);
                 color: var(--Desaturated_Dark_Cyan);
                 font-size: 0.93333333333333333em;
+                display: flex;
+                align-items: center;
                 .X {
                 	padding: 0.6em;
                 	cursor: pointer;
@@ -55,6 +57,7 @@ main {
     
     #none {
     	border: solid;
+    	display: none;
     }
     #one {
     	display: flex;
