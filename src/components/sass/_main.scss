@@ -14,7 +14,7 @@ main {
         justify-content: space-between;
         padding: 1em 2em;
 
-        .skills {
+        .skills2 {
             //@include border(yellow);
             margin: 0;
             display: flex;
@@ -48,6 +48,22 @@ main {
         .clear:hover {
         	text-decoration: underline;
         }
+    }
+    .none {
+    	display: none;
+    }
+    
+    #none {
+    	border: solid;
+    }
+    #one {
+    	display: flex;
+    }
+    #two {
+    	display: flex;
+    }
+    #three {
+    	display: flex;
     }
 }
 

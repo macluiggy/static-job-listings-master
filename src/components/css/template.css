@@ -33,28 +33,28 @@ main .filter_container {
   justify-content: space-between;
   padding: 1em 2em;
 }
-main .filter_container .skills {
+main .filter_container .skills2 {
   margin: 0;
   display: flex;
   align-items: center;
   list-style-type: none;
   padding: 0;
 }
-main .filter_container .skills li {
+main .filter_container .skills2 li {
   margin: 0 0.7em 0 0;
   padding: 0.7em;
   background-color: var(--Light_Grayish_Cyan_Background);
   color: var(--Desaturated_Dark_Cyan);
   font-size: 0.9333333333em;
 }
-main .filter_container .skills li .X {
+main .filter_container .skills2 li .X {
   padding: 0.6em;
   cursor: pointer;
   color: white;
   background-color: var(--Desaturated_Dark_Cyan);
   transition: 0.3s background-color;
 }
-main .filter_container .skills li .X:hover {
+main .filter_container .skills2 li .X:hover {
   background-color: var(--Very_Dark_Grayish_Cyan);
 }
 main .filter_container .clear {
@@ -64,6 +64,18 @@ main .filter_container .clear {
 }
 main .filter_container .clear:hover {
   text-decoration: underline;
+}
+main .none {
+  display: none;
+}
+main #none {
+  border: solid;
+}
+main #one {
+  display: flex;
+}
+main #two {
+  display: flex;
 }
 
 .items {
