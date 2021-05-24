@@ -19,19 +19,31 @@ header {
   background-color: var(--Desaturated_Dark_Cyan);
 }
 
+@media screen and (max-width: 800px) {
+  header {
+    background-image: url("../images/bg-header-mobile.svg");
+    background-position: right center;
+    background-size: 100%;
+  }
+}
 main {
   background-color: var(--Light_Grayish_Cyan_Background);
-  padding: 3em 0;
+  padding: 3em 0 3em 0;
+  position: relative;
 }
 main .filter_container {
-  border: solid red;
+  border-radius: 1em;
   width: 80%;
   margin: auto;
   background-color: white;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: 1em 2em;
+  position: absolute;
+  top: -50px;
+  margin: auto;
+  left: 7.5%;
 }
 main .filter_container .skills2 {
   margin: 0;
@@ -39,25 +51,16 @@ main .filter_container .skills2 {
   align-items: center;
   list-style-type: none;
   padding: 0;
+  flex-wrap: wrap;
 }
 main .filter_container .skills2 li {
-  margin: 0 0.7em 0 0;
-  padding: 0.7em;
+  margin: 0.7em 0.7em 0 0;
+  padding: 0.5em;
   background-color: var(--Light_Grayish_Cyan_Background);
   color: var(--Desaturated_Dark_Cyan);
   font-size: 0.9333333333em;
   display: flex;
   align-items: center;
-}
-main .filter_container .skills2 li .X {
-  padding: 0.6em;
-  cursor: pointer;
-  color: white;
-  background-color: var(--Desaturated_Dark_Cyan);
-  transition: 0.3s background-color;
-}
-main .filter_container .skills2 li .X:hover {
-  background-color: var(--Very_Dark_Grayish_Cyan);
 }
 main .filter_container .clear {
   cursor: pointer;
@@ -80,7 +83,25 @@ main #one {
 main #two {
   display: flex;
 }
-main #three {
+main #four {
+  display: flex;
+}
+main #five {
+  display: flex;
+}
+main #six {
+  display: flex;
+}
+main #seven {
+  display: flex;
+}
+main #eight {
+  display: flex;
+}
+main #nine {
+  display: flex;
+}
+main #ten {
   display: flex;
 }
 
@@ -148,6 +169,11 @@ main #three {
 .items .logo_description .description h4 {
   margin: 0.3em 0;
   font-size: 1.16em;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.items .logo_description .description h4:hover {
+  color: var(--Desaturated_Dark_Cyan);
 }
 .items .logo_description .description .time_location {
   margin: 0.3em 0;
@@ -176,6 +202,45 @@ main #three {
   color: var(--Desaturated_Dark_Cyan);
   font-size: 0.9333333333em;
   cursor: pointer;
+  border-radius: 0.3em;
+  transition: background-color 0.3s, color 0.3s;
+}
+.items .skills li:hover {
+  background-color: var(--Desaturated_Dark_Cyan);
+  color: var(--Light_Grayish_Cyan_Background);
+}
+
+@media screen and (max-width: 1000px) {
+  main .items {
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
+  main .items .logo_description {
+    position: relative;
+  }
+  main .items .logo_description .logo {
+    position: absolute;
+    top: -70px;
+  }
+  main .items .logo_description .logo img {
+    width: 80%;
+  }
+  main .items .logo_description .description .logo_name {
+    flex-wrap: wrap;
+  }
+  main .items .logo_description .description .logo_name .logo_name_span {
+    font-size: 1.2em;
+  }
+  main .items .logo_description .description .logo_name .new {
+    font-size: 1.09em;
+  }
+  main .items .logo_description .description .logo_name .featured {
+    font-size: 1.09em;
+  }
+  main .items .skills {
+    flex-wrap: wrap;
+    border-top: solid 1px;
+  }
 }
 
 /*# sourceMappingURL=template.css.map */

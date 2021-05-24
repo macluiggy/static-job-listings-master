@@ -2,17 +2,23 @@
 
 main {
     background-color: var(--Light_Grayish_Cyan_Background);
-    padding: 3em 0;
+    padding: 3em 0 3em 0;
+    position: relative;
 
     .filter_container {
-        @include border(red);
+        //@include border(red);
+        border-radius: 1em;
         width: 80%;
         margin: auto;
         background-color: white;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: space-between;
         padding: 1em 2em;
+        position: absolute;
+        top: -50px;
+        margin: auto;
+        left: 7.5%;
 
         .skills2 {
             //@include border(yellow);
@@ -21,25 +27,16 @@ main {
             align-items: center;
             list-style-type: none;
             padding: 0;
+        	flex-wrap: wrap;
 
             li {
-                margin: 0 0.7em 0 0;
-                padding: 0.7em;
+                margin: 0.7em 0.7em 0 0;
+                padding: 0.5em;
                 background-color: var(--Light_Grayish_Cyan_Background);
                 color: var(--Desaturated_Dark_Cyan);
                 font-size: 0.93333333333333333em;
                 display: flex;
                 align-items: center;
-                .X {
-                	padding: 0.6em;
-                	cursor: pointer;
-                	color: white;
-                	background-color: var(--Desaturated_Dark_Cyan);
-                	transition: 0.3s background-color;
-                }
-                .X:hover {
-                	background-color: var(--Very_Dark_Grayish_Cyan);
-                }
             }
         }
         .clear {
@@ -65,7 +62,25 @@ main {
     #two {
     	display: flex;
     }
-    #three {
+    #four {
+    	display: flex;
+    }
+    #five {
+    	display: flex;
+    }
+    #six {
+    	display: flex;
+    }
+    #seven {
+    	display: flex;
+    }
+    #eight {
+    	display: flex;
+    }
+    #nine {
+    	display: flex;
+    }
+    #ten {
     	display: flex;
     }
 }
@@ -110,7 +125,6 @@ main {
                 align-items: center;
                 //@include border(red);
                 margin: 0.3em 0;
-
                 span {
                     margin-right: 1em;
                 }
@@ -146,6 +160,11 @@ main {
                 //@include border(orange);
                 margin: 0.3em 0;
                 font-size: 1.16em;
+                cursor: pointer;
+                transition: color 0.3s;
+            }
+            h4:hover {
+            	color: var(--Desaturated_Dark_Cyan);
             }
 
             .time_location {
@@ -182,6 +201,49 @@ main {
             color: var(--Desaturated_Dark_Cyan);
             font-size: 0.93333333333333333em;
             cursor: pointer;
+            border-radius: 0.3em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        li:hover {
+        	background-color: var(--Desaturated_Dark_Cyan);
+        	color: var(--Light_Grayish_Cyan_Background);
         }
     }
+}
+
+@media screen and (max-width: 1000px) {
+	main {
+		.items {
+			flex-direction: column;
+			margin-bottom: 60px;
+			.logo_description {
+				position: relative;
+				.logo {
+					position: absolute;
+					top: -70px;
+					img {
+						width: 80%;
+					}
+				}
+				.description {
+					.logo_name {
+						flex-wrap: wrap;
+						.logo_name_span {
+							font-size: 1.2em;
+						}
+						.new {
+							font-size: 1.09em;
+						}
+						.featured {
+							font-size: 1.09em;
+						}
+					}
+				}
+			}
+			.skills {
+				flex-wrap: wrap;
+				border-top: solid 1px;
+			}
+		}
+	}
 }

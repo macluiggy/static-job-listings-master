@@ -4,6 +4,14 @@ import { $$, $, p } from './functions.js'
 //images
 import photosnap from './images/photosnap.svg';
 import manage from './images/manage.svg';
+import account from './images/account.svg';
+import myHome from './images/myhome.svg';
+import loopStudios from './images/loop-studios.svg';
+import facelt from './images/faceit.svg';
+import shortly from './images/shortly.svg';
+import insure from './images/insure.svg';
+import eyecam from './images/eyecam-co.svg'
+import theAirFilterCompany from './images/the-air-filter-company.svg';
 
 import Filter from './Filter';
 
@@ -38,8 +46,8 @@ export default class Main extends Component {
         skills: [],
         cardContainer: "items item1",
         none: "none",
-        sections: ["one", 'two', "three"],
-        sectionsFixed: ['one', "two", 'three']
+        sections: ["one", 'two', "three", 'four', 'five', "six", 'seven', 'eight', 'nine', 'ten'],
+        sectionsFixed: ['one', "two", 'three', 'four', 'five', "six", 'seven', 'eight', 'nine', 'ten']
     }
 
     
@@ -68,7 +76,9 @@ export default class Main extends Component {
             
         }*/
         //llama otra funcion
-        this.filterContainer(skill)
+        this.filterContainer(skill);
+
+    	this.showSkillsContainer();
     }
 
     filterContainer = (skill) => {
@@ -134,27 +144,7 @@ export default class Main extends Component {
     		skills: []
     	})
     	this.show();
-    }
-
-    clearItem = (e) => {
-    	let item = e.target.parentNode.firstChild.innerText;
-    	//p(item);
-    	let index = this.state.skills.indexOf(item);
-    	//p(index)
-    	if (index > -1) {
-    		// statement
-    		let removedSkill = this.state.skills.splice(index, 1)
-    		p(`item removido: ${removedSkill}`)
-    		this.setState({
-    			skills: this.state.skills
-    		})
-    		this.showItem(item)
-    	}
-    	//p(this.state.skills)
-
-
-
-
+    	this.hideSkillsContainer();
     }
 
     show = () => {
@@ -163,33 +153,13 @@ export default class Main extends Component {
     	}
     }
 
-    showItem = (removedSkill) => {
-
-    	let array = this.props.data
-    	for(let i = 0, length1 = array.length; i < length1; i++){
-    		let person = array[i];
-    		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
-    		const arr1 = [...new Set(arrSinLimites)];
-    		arr1.map(el => {
-    			if (el == removedSkill) {
-    				this.state.sections[i] = this.state.sectionsFixed[i];
-    			} else {
-    				let one = typeof removedSkill;
-    				let two = typeof el;
-    				p(`el elemento ${one} no coincide con ${two}`);
-    			}
-    		})
-    		/*let index = arr1.indexOf(removedSkill);
-    		
-    		if (index > -1) {
-    			// statement
-    			p('elemento encontrado en ' + index )
-    			this.state.sections[i] = this.state.sectionsFixed[i];
-    		} else {
-    			p(`no se encontro ${removedSkill} en ${arr1}`)
-    		}*/
-    	}
-    	
+    hideSkillsContainer = () => {
+    	let skillsContainer = $('.filter_container');
+    	skillsContainer.style.display = 'none';
+    }
+    showSkillsContainer = () => {
+    	let skillsContainer = $('.filter_container');
+    	skillsContainer.style.display = 'flex';
     }
 
     render() {
@@ -201,16 +171,10 @@ export default class Main extends Component {
         return (<main>
 			<div className='filter_container'>
 				<ul className="skills2">
-                	<li className="role" ><p>Froxxntendrr</p><span className="X">X</span></li>
-                	<li className="level"><p>Senxxiorrr</p></li>
                 	{[...new Set(this.state.skills)].map(skill => {
                 		count++;
                 		return <li key={count}>
                 		<p>{skill}</p>
-                		<span 
-                		className="X" 
-                		onClick={this.clearItem}>
-                		X</span>
                 		</li>;
                 	})}
             	</ul>
@@ -272,13 +236,12 @@ export default class Main extends Component {
         <section id={this.state.sections[2]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={photosnap} alt="photosnap logo" />
+                    <img src={account} alt="photosnap logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
                         <span className="logo_name_span">Account</span>
                         <span className="new">New!</span>
-                        <span className="featured"></span>
                     </div>
                     <h4>Junior Frontend Developer</h4>
                     <ul className="time_location">
@@ -292,6 +255,180 @@ export default class Main extends Component {
                 <li className="role" onClick={this.filterSkill}>Frontend</li>
                 <li className="level" onClick={this.filterSkill}>Junior</li>
                 <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="tools" onClick={this.filterSkill}>React</li>
+                <li className="tools" onClick={this.filterSkill}>Sass</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[3]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={myHome} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">MyHome</span>
+                    </div>
+                    <h4>Junior Frontend Developer</h4>
+                    <ul className="time_location">
+                        <li>5d ago</li>
+                        <li>Contract</li>
+                        <li>USA only</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Frontend</li>
+                <li className="level" onClick={this.filterSkill}>Junior</li>
+                <li className="languages" onClick={this.filterSkill}>CSS</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[4]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={loopStudios} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Loop Studios</span>
+                    </div>
+                    <h4>Software Engineer</h4>
+                    <ul className="time_location">
+                        <li>1w ago</li>
+                        <li>Full Time</li>
+                        <li>Worldwide</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Fullstack</li>
+                <li className="level" onClick={this.filterSkill}>Midweight</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="languages" onClick={this.filterSkill}>Ruby</li>
+                <li className="tools" onClick={this.filterSkill}>Sass</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[5]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={facelt} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">FaceIt</span>
+                    </div>
+                    <h4>Junior Backend Developer</h4>
+                    <ul className="time_location">
+                        <li>2w ago</li>
+                        <li>Full Time</li>
+                        <li>UK only</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Backend</li>
+                <li className="level" onClick={this.filterSkill}>Junior</li>
+                <li className="languages" onClick={this.filterSkill}>Ruby</li>
+                <li className="tools" onClick={this.filterSkill}>RoR</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[6]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={shortly} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Shortly</span>
+                    </div>
+                    <h4>Junior Developer</h4>
+                    <ul className="time_location">
+                        <li>2w ago</li>
+                        <li>Full Time</li>
+                        <li>Worldwide</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Frontend</li>
+                <li className="level" onClick={this.filterSkill}>Junior</li>
+                <li className="languages" onClick={this.filterSkill}>HTML</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="tools" onClick={this.filterSkill}>Sass</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[7]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={insure} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Insure</span>
+                    </div>
+                    <h4>Junior Frontend Developer</h4>
+                    <ul className="time_location">
+                        <li>2w ago</li>
+                        <li>Full Time</li>
+                        <li>USA only</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Frontend</li>
+                <li className="level" onClick={this.filterSkill}>Junior</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="tools" onClick={this.filterSkill}>Sass</li>
+                <li className="tools" onClick={this.filterSkill}>Vue</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[8]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={eyecam} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">Eyecam Co.</span>
+                    </div>
+                    <h4>Full Stack Engineer</h4>
+                    <ul className="time_location">
+                        <li>3w ago</li>
+                        <li>Full Time</li>
+                        <li>Worldwide</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Fullstack</li>
+                <li className="level" onClick={this.filterSkill}>Midweight</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="languages" onClick={this.filterSkill}>Python</li>
+                <li className="tools" onClick={this.filterSkill}>Django</li>
+            </ul>
+        </section>
+        <section id={this.state.sections[9]} className={this.state.cardContainer}>
+            <div className="logo_description">
+                <figure className="logo">
+                    <img src={theAirFilterCompany} />
+                </figure>
+                <article class="description">
+                    <div class="logo_name">
+                        <span className="logo_name_span">The Air Filter Company</span>
+                    </div>
+                    <h4>Front-end Dev</h4>
+                    <ul className="time_location">
+                        <li>1mo ago</li>
+                        <li>Part Time</li>
+                        <li>Worldwide</li>
+                    </ul>
+                </article>
+            </div>
+            <ul className="skills">
+                <li className="role" onClick={this.filterSkill}>Frontend</li>
+                <li className="level" onClick={this.filterSkill}>Junior</li>
+                <li className="languages" onClick={this.filterSkill}>JavaScript</li>
+                <li className="languages" onClick={this.filterSkill}>Python</li>
                 <li className="tools" onClick={this.filterSkill}>React</li>
                 <li className="tools" onClick={this.filterSkill}>Sass</li>
             </ul>

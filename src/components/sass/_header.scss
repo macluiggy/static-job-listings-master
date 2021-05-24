@@ -7,3 +7,11 @@ header {
 	//@include border(red);
 	background-color: var(--Desaturated_Dark_Cyan);
 }
+
+@media screen and (max-width: 800px) {
+	header {
+		background-image: url('../images/bg-header-mobile.svg');
+		background-position: right center;
+		background-size: 100%;
+	}
+}
