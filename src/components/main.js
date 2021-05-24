@@ -264,8 +264,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={myHome} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">MyHome</span>
                     </div>
                     <h4>Junior Frontend Developer</h4>
@@ -288,8 +288,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={loopStudios} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">Loop Studios</span>
                     </div>
                     <h4>Software Engineer</h4>
@@ -313,8 +313,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={facelt} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">FaceIt</span>
                     </div>
                     <h4>Junior Backend Developer</h4>
@@ -337,8 +337,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={shortly} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">Shortly</span>
                     </div>
                     <h4>Junior Developer</h4>
@@ -362,8 +362,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={insure} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">Insure</span>
                     </div>
                     <h4>Junior Frontend Developer</h4>
@@ -387,8 +387,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={eyecam} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">Eyecam Co.</span>
                     </div>
                     <h4>Full Stack Engineer</h4>
@@ -412,8 +412,8 @@ export default class Main extends Component {
                 <figure className="logo">
                     <img src={theAirFilterCompany} />
                 </figure>
-                <article class="description">
-                    <div class="logo_name">
+                <article className="description">
+                    <div className="logo_name">
                         <span className="logo_name_span">The Air Filter Company</span>
                     </div>
                     <h4>Front-end Dev</h4>
