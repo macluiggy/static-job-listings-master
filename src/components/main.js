@@ -80,9 +80,9 @@ export default class Main extends Component {
     		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
     		const arr1 = [...new Set(arrSinLimites)];
     		let test = arr1.some(i => arr2.includes(i));
-    		p(arr2)
-    		p(arr1)
-    		p(test)
+    		//p(arr2)
+    		//p(arr1)
+    		//p(test)
     		if (test) {
     			// statement
     			this.state.sections[i] = this.state.sectionsFixed[i]
@@ -133,28 +133,63 @@ export default class Main extends Component {
     	this.setState({
     		skills: []
     	})
-    	this.showAgain();
+    	this.show();
     }
 
     clearItem = (e) => {
     	let item = e.target.parentNode.firstChild.innerText;
-    	p(item);
+    	//p(item);
     	let index = this.state.skills.indexOf(item);
-    	p(index)
+    	//p(index)
     	if (index > -1) {
     		// statement
-    		this.state.skills.splice(index, 1)
+    		let removedSkill = this.state.skills.splice(index, 1)
+    		p(`item removido: ${removedSkill}`)
     		this.setState({
     			skills: this.state.skills
     		})
+    		this.showItem(item)
     	}
-    	p(this.state.skills)
+    	//p(this.state.skills)
+
+
+
+
     }
 
-    showAgain = () => {
+    show = () => {
     	for(let i = 0, length1 = this.state.sections.length; i < length1; i++){
     		this.state.sections[i] = this.state.sectionsFixed[i]
     	}
+    }
+
+    showItem = (removedSkill) => {
+
+    	let array = this.props.data
+    	for(let i = 0, length1 = array.length; i < length1; i++){
+    		let person = array[i];
+    		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
+    		const arr1 = [...new Set(arrSinLimites)];
+    		arr1.map(el => {
+    			if (el == removedSkill) {
+    				this.state.sections[i] = this.state.sectionsFixed[i];
+    			} else {
+    				let one = typeof removedSkill;
+    				let two = typeof el;
+    				p(`el elemento ${one} no coincide con ${two}`);
+    			}
+    		})
+    		/*let index = arr1.indexOf(removedSkill);
+    		
+    		if (index > -1) {
+    			// statement
+    			p('elemento encontrado en ' + index )
+    			this.state.sections[i] = this.state.sectionsFixed[i];
+    		} else {
+    			p(`no se encontro ${removedSkill} en ${arr1}`)
+    		}*/
+    	}
+    	
     }
 
     render() {
