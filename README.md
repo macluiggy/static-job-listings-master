@@ -118,7 +118,7 @@ filterContainer = (skill) => {
     }
 ```
 The above script filter each section, iterate an make an array to filter the filtered skills array with the current skills array, if at leas one arr1's item is in the arr2, the test pass and filter the current section.
-```react
+```html
 <div className='filter_container'>
 				<ul className="skills2">
                 	{[...new Set(this.state.skills)].map(skill => {//mapea cada elemento del array de las skills filtradas, y añade cada una al contenedor
