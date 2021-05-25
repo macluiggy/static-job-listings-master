@@ -189,7 +189,7 @@ export default class Main extends Component {
         <section id={this.state.sections[3]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={myHome} />
+                    <img src={myHome} alt="myhome logo"/>
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -213,7 +213,7 @@ export default class Main extends Component {
         <section id={this.state.sections[4]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={loopStudios} />
+                    <img src={loopStudios} alt="loopStudios logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -238,7 +238,7 @@ export default class Main extends Component {
         <section id={this.state.sections[5]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={facelt} />
+                    <img src={facelt} alt="faceit logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -262,7 +262,7 @@ export default class Main extends Component {
         <section id={this.state.sections[6]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={shortly} />
+                    <img src={shortly} alt="shortly logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -287,7 +287,7 @@ export default class Main extends Component {
         <section id={this.state.sections[7]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={insure} />
+                    <img src={insure} alt="insure logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -312,7 +312,7 @@ export default class Main extends Component {
         <section id={this.state.sections[8]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={eyecam} />
+                    <img src={eyecam} alt="eyecam logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
@@ -337,7 +337,7 @@ export default class Main extends Component {
         <section id={this.state.sections[9]} className={this.state.cardContainer}>
             <div className="logo_description">
                 <figure className="logo">
-                    <img src={theAirFilterCompany} />
+                    <img src={theAirFilterCompany} alt="theAirFilterCompany logo" />
                 </figure>
                 <article className="description">
                     <div className="logo_name">
