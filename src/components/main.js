@@ -13,32 +13,6 @@ import insure from './images/insure.svg';
 import eyecam from './images/eyecam-co.svg'
 import theAirFilterCompany from './images/the-air-filter-company.svg';
 
-import Filter from './Filter';
-
-/*
-let skills = $$('.skills');
-
-function checkIfAreTheSame(arr) {
-    // body... 
-    for (let i = 0, length1 = skills.length; i < length1; i++) {
-        let skill = skills[i].childNodes;
-        for (let j = 0, length1 = skill.length; j < length1; j++) {
-            let item = skill[j];
-            //p(item)
-            for(let k = 0, length1 = arr.length; k < length1; k++){
-            	let el = arr[k];
-            	//console.log(el)
-            	p(item.innerText == el)
-            	p(skills[i].parentNode)
-            	if (item.innerText !== el) {
-            		// statement
-            		skills[i].parentNode.className = 'none';
-            	}
-            }
-        }
-    }
-}
-*/
 
 export default class Main extends Component {
 
@@ -55,124 +29,77 @@ export default class Main extends Component {
 
     filterSkill = (e) => {
         //console.log(e.currentTarget)
-        let skill = e.target.innerText;
+        let skill = e.target.innerText;//el valor que se obtiene cuando se cliquea en una de las skills
         //console.log(this.props.data)
         //console.log(skill);
         this.setState({
-        	skills: [...this.state.skills, skill]
+        	skills: [...this.state.skills, skill]//actualiza las skills del state object añadiendo la que se acaba de clicar
         })
-        /*for (let i = 0, length1 = this.props.data.length; i < length1; i++) {
-            let person = this.props.data[i]
-            let skillsArray = [person.role, person.level, ...person.languages, ...person.tools];
-            for(let i = 0, length1 = skillsArray.length; i < length1; i++){
-            	
-            	if (skill === skillsArray[i]) {
-            		// statement
-            		this.setState({
-            			skills: [...this.state.skills, skill]
-            		})
-            	}
-            }
-            
-        }*/
+   		
         //llama otra funcion
-        this.filterContainer(skill);
+        this.filterContainer(skill);//llama a la funcion que filtrara la skill
 
-    	this.showSkillsContainer();
+    	this.showSkillsContainer();//muestra el contenedor de las skills filtradas
     }
 
     filterContainer = (skill) => {
-    	let array = this.props.data;
-    	let arr2 = [...new Set([...this.state.skills, skill])];
+    	let array = this.props.data;//el array que proviene de App
+    	let arr2 = [...new Set([...this.state.skills, skill])];//evita que se repita los mismos valores en el array
     	
+    	//itera por cada elemento del array
     	for(let i = 0, length1 = array.length; i < length1; i++){
-    		let person = array[i];
+    		let person = array[i];//cada elemneto del array representa un objeto con datos de un individuo
+    		//el añade un array con los datos correspondientes 
     		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
-    		const arr1 = [...new Set(arrSinLimites)];
-    		let test = arr1.some(i => arr2.includes(i));
+    		const arr1 = [...new Set(arrSinLimites)];// evita que ese array se repita
+    		let test = arr1.some(i => arr2.includes(i));//verifica si al menos un elemento del arr2 se encuentra en el arr1
     		//p(arr2)
     		//p(arr1)
     		//p(test)
-    		if (test) {
+    		if (test) {// si el test es verdadero
     			// statement
-    			this.state.sections[i] = this.state.sectionsFixed[i]
+    			this.state.sections[i] = this.state.sectionsFixed[i];//cambia el id de la seccion correspondiente al id que lo mostrara por pantalla
     		} else {
     			// statement
-    			this.state.sections[i] = this.state.none
+    			this.state.sections[i] = this.state.none; //si no, cambia el id para que no se muestre por pantalla
     		}
     	}
     	
-    	/*
-    	for(let i = 0, length1 = arr2.length; i < length1; i++){
-    		let skill = arr2[i];
-    		for(let j = 0, length1 = arr1.length; j < length1; j++){
-    			let person = arr1[j];
-    			if (skill === person.role || skill === person.level) {
-    				// statement
-    				this.state.sections[j] = this.state.sectionsFixed[j]
-    			} else {
-    				this.state.sections[j] = this.state.none
-    			}
-    			for(let k = 0, length1 = person.languages.length; k < length1; k++){
-    				let language = person.languages[k]
-    				if (skill === language) {
-    					// statement
-    					this.state.sections[j] = this.state.sectionsFixed[j]
-    				} else {
-    					// statement
-    					this.state.sections[j] = this.state.none
-    				}
-    			}
-    		}
-    	}*/
-    	/*for(let i = 0, length1 = arr1.length; i < length1; i++){
-    		let person = arr1[i];
-    		for(let j = 0, length1 = arr2.length; j < length1; j++){
-    			let skill = arr2[j];
-    			if (skill === person.role || skill === person.level) {
-    				// statement
-    				continue;
-    			} else {
-    				this.state.sections[i] = 'none'
-    			}
-    		}
-    	}*/
     }
 
-    clear = () => {
-    	this.setState({
-    		skills: []
+    clear = () => {//funcion para borrar todas las skills filtradas
+    	this.setState({//cambia el estado
+    		skills: [] //a un array vacio
     	})
-    	this.show();
-    	this.hideSkillsContainer();
+    	this.show();//llama la funcion show
+    	this.hideSkillsContainer();//llama la funcion que ocultara el contenedor de las skills filtradas
     }
 
-    show = () => {
-    	for(let i = 0, length1 = this.state.sections.length; i < length1; i++){
-    		this.state.sections[i] = this.state.sectionsFixed[i]
+    show = () => {// funcion para mostrar todas las secciones en pantalla
+    	for(let i = 0, length1 = this.state.sections.length; i < length1; i++){//itera por cada seccion
+    		this.state.sections[i] = this.state.sectionsFixed[i]; //cambia su id para que se muestre en pantalla
     	}
     }
 
-    hideSkillsContainer = () => {
-    	let skillsContainer = $('.filter_container');
-    	skillsContainer.style.display = 'none';
+    hideSkillsContainer = () => {//funcion para que se oculte el contenedor de las skills filtradas
+    	let skillsContainer = $('.filter_container');//obten el elemento
+    	skillsContainer.style.display = 'none';//cambia si propiedad display a none
     }
-    showSkillsContainer = () => {
-    	let skillsContainer = $('.filter_container');
-    	skillsContainer.style.display = 'flex';
+    showSkillsContainer = () => {//funcion para que se muestre el contenedor de las skills filtradas
+    	let skillsContainer = $('.filter_container');//obten el elemento
+    	skillsContainer.style.display = 'flex';//cambia si propiedad display a flex
     }
 
     render() {
-        const skills = [...new Set(this.state.skills)];
-        let count = -1;
+        const skills = [...new Set(this.state.skills)];//obten la propiedad skills del objeto state
+        let count = -1;//inicializa el contador
         //console.log(skills)
-        //checkIfAreTheSame(skills)
         //console.log(data)
         return (<main>
 			<div className='filter_container'>
 				<ul className="skills2">
-                	{[...new Set(this.state.skills)].map(skill => {
-                		count++;
+                	{[...new Set(this.state.skills)].map(skill => {//mapea cada elemento del array de las skills filtradas, y añade cada una al contenedor
+                		count++;//aumenta el contenedor
                 		return <li key={count}>
                 		<p>{skill}</p>
                 		</li>;
