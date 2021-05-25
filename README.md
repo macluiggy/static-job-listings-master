@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4a72add9-854a-4bba-b4e2-1b095640a7dc/deploy-status)](https://app.netlify.com/sites/static-job-listings-with-filter/deploys)
+
 # Frontend Mentor - Job listings with filtering solution
 
 This is a solution to the [Job listings with filtering challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/job-listings-with-filtering-ivstIPCt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
@@ -16,7 +18,7 @@ This is a solution to the [Job listings with filtering challenge on Frontend Men
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+
 
 ## Overview
 
@@ -58,51 +60,93 @@ Users should be able to:
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+My first project using react, in this project I learned to filter content in a webpage, to do so the concepts of components were apply, I divided the header and the main sections in two components, this way tha App component group together all the content.
+Sass was also used, importing all the css neccesary in the App component.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+The concept of the state object was used to help filter the content of the webpage, the array that contains its id were modified depending if the skill the user select is in each section of skills:
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+state = {
+        skills: [],
+        cardContainer: "items item1",
+        none: "none",
+        sections: ["one", 'two', "three", 'four', 'five', "six", 'seven', 'eight', 'nine', 'ten'],
+        sectionsFixed: ['one', "two", 'three', 'four', 'five', "six", 'seven', 'eight', 'nine', 'ten']
+    }
 ```
+So whe a user click in a skill it triggers a method to filter the content, this is the code i used:
+```js
+filterSkill = (e) => {
+        //console.log(e.currentTarget)
+        let skill = e.target.innerText;//el valor que se obtiene cuando se cliquea en una de las skills
+        //console.log(this.props.data)
+        //console.log(skill);
+        this.setState({
+        	skills: [...this.state.skills, skill]//actualiza las skills del state object añadiendo la que se acaba de clicar
+        })
+   		
+        //llama otra funcion
+        this.filterContainer(skill);//llama a la funcion que filtrara la skill
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+    	this.showSkillsContainer();//muestra el contenedor de las skills filtradas
+    }
+```
+When the array of clicked skills is filtered, it triggers another functions to filter each section depending if the skill is or not in that section:
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+```js
+filterContainer = (skill) => {
+    	let array = this.props.data;//el array que proviene de App
+    	let arr2 = [...new Set([...this.state.skills, skill])];//evita que se repita los mismos valores en el array
+    	
+    	//itera por cada elemento del array
+    	for(let i = 0, length1 = array.length; i < length1; i++){
+    		let person = array[i];//cada elemneto del array representa un objeto con datos de un individuo
+    		//el añade un array con los datos correspondientes 
+    		const arrSinLimites = [person.role, person.level, ...person.languages, ...person.tools];
+    		const arr1 = [...new Set(arrSinLimites)];// evita que ese array se repita
+    		let test = arr1.some(i => arr2.includes(i));//verifica si al menos un elemento del arr2 se encuentra en el arr1
+    		//p(arr2)
+    		//p(arr1)
+    		//p(test)
+    		if (test) {// si el test es verdadero
+    			// statement
+    			this.state.sections[i] = this.state.sectionsFixed[i];//cambia el id de la seccion correspondiente al id que lo mostrara por pantalla
+    		} else {
+    			// statement
+    			this.state.sections[i] = this.state.none; //si no, cambia el id para que no se muestre por pantalla
+    		}
+    	}
+    	
+    }
+```
+The above script filter each section, iterate an make an array to filter the filtered skills array with the current skills array, if at leas one arr1's item is in the arr2, the test pass and filter the current section.
+```react
+<div className='filter_container'>
+				<ul className="skills2">
+                	{[...new Set(this.state.skills)].map(skill => {//mapea cada elemento del array de las skills filtradas, y añade cada una al contenedor
+                		count++;//aumenta el contenedor
+                		return <li key={count}>
+                		<p>{skill}</p>
+                		</li>;
+                	})}
+            	</ul>
+            	<span className="clear" onClick={this.clear}>Clear</span>
+			</div>
+```
+When the content is filtered,  the filtered skills array is mapped to display in the screen each skill.
+
+
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+React is a very useful framework, so I will continue learning this tool.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+### Useful resources
+[w3school](https://www.w3schools.com/) and [stackoverflow](https://stackoverflow.com/) were of great help to solve some doubts.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@macluiggy](https://www.frontendmentor.io/profile/macluiggy)
+- LinkedIn - [Luiggy Macias](https://www.linkedin.com/in/luiggy-macias-402696155/)
