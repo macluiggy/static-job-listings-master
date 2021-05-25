@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/macluiggy/static-job-listings-master)
-- Live Site URL: [](https://static-job-listings-with-filter.netlify.app/)
+- Solution URL: [click here](https://github.com/macluiggy/static-job-listings-master)
+- Live Site URL: [click here](https://static-job-listings-with-filter.netlify.app/)
 
 ## My process
 
@@ -48,10 +48,13 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Sass](https://sass-lang.com/) - CSS preprocessor
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+
+
+
+
+
 
 ### What I learned
 
