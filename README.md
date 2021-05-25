@@ -139,8 +139,6 @@ When the content is filtered,  the filtered skills array is mapped to display in
 
 React is a very useful framework, so I will continue learning this tool.
 
-### Useful resources
-
 
 ### Useful resources
 [w3school](https://www.w3schools.com/) and [stackoverflow](https://stackoverflow.com/) were of great help to solve some doubts.
